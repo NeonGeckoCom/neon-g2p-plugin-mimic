@@ -45,6 +45,6 @@ class MimicPhonemesPlugin(Grapheme2PhonemePlugin):
 
     def utterance2visemes(self, utterance, lang="en", default_dur=0.4):
         phonemes = self.get_mimic_phonemes(utterance, normalize=False)
-        return [(VISIMES.get(pho[0], '4'), pho[1]) for pho in phonemes]
+        return [(VISIMES.get(pho[0], '4'), float(pho[1])) for pho in phonemes]
 
 
