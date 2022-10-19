@@ -50,6 +50,15 @@ class MimicPhonemesPlugin(Grapheme2PhonemePlugin):
         phonemes = self.get_mimic_phonemes(utterance, normalize=False)
         return [(VISIMES.get(pho[0], '4'), float(pho[1])) for pho in phonemes]
 
+    @property
+    def available_languages(self):
+        """Return languages supported by this G2P implementation in this state
+        This property should be overridden by the derived class to advertise
+        what languages that engine supports.
+        Returns:
+            set: supported languages
+        """
+        return {"en"}
 
 # sample valid configurations per language
 # "display_name" and "offline" provide metadata for UI
